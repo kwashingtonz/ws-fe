@@ -1,0 +1,31 @@
+.app{
+  height: 100vh;
+  width: 100vw;
+}
+
+.app .map-content{
+  height: 100vh;
+  min-width: 310px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app .map-content div{
+  height: 100%;
+}
+
+.app .map-content .highcharts-title{
+  font-size: 35px !important;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.app .map-content text{
+  font-size: 20px !important;
+  text-align: center;
+}
+
+.app .map-content .highcharts-data-labels text{
+  font-size: 11px !important;
+  text-align: center !important;
+}

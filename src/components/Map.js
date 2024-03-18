@@ -208,7 +208,7 @@ function Map(props) {
             enabled: false
         },
         tooltip: {
-            headerFormat: "",
+            headerFormat: " ",
              pointFormat: `{point.name}<br><br>Temperature: {point.temp}°C<br>Humidity: {point.humidity}%<br>Air Pressure: {point.pressure}hPa`
         },
         plotOptions: {

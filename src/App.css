@@ -14,6 +14,13 @@
   height: 100%;
 }
 
+.app .map-content .error{
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
 .app .map-content .highcharts-title{
   font-size: 35px !important;
   text-align: center;

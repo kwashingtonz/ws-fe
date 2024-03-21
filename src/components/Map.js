@@ -8,6 +8,9 @@ import io from 'socket.io-client';
 highchartsMap(Highcharts);
 
 var mapDataIE = require('@highcharts/map-collection/countries/lk/lk-all.geo.json');
+const basePath = process.env.REACT_APP_BASEPATH;
+const dataPath = process.env.REACT_APP_DATAPATH
+const apiKey = process.env.REACT_APP_APIKEY;
 
 function Map(props) {
     
@@ -18,9 +21,9 @@ function Map(props) {
 
         const getWeatherData = async () => {
             try {
-                const response = await axios.get('http://localhost:9090/service/weatherData/getWeatherData',{
+                const response = await axios.get(basePath+dataPath,{
                 headers: {
-                    'x-api-key': 'HC0#5ylVKHSdjn#GhRK@s',
+                    'x-api-key': apiKey,
                 }
                 });
 
@@ -47,7 +50,7 @@ function Map(props) {
         getWeatherData();
 
         // Connect to the Socket.IO server
-        const socket = io('http://localhost:9090'); 
+        const socket = io(basePath); 
 
         // Listen for 'weatherData' event emitted from the server
         socket.on('weather-data', (data) => {
@@ -128,6 +131,10 @@ function Map(props) {
             let weatherStation = district.weatherStations.find(x => x.weatherStationId === district.districtId);
             let reading = weatherStation.reading;
 
+            let dateTime = new Date(reading.dateTime);
+            dateTime.setHours(dateTime.getHours() - 5);
+            dateTime.setMinutes(dateTime.getMinutes() - 30);
+
             let dataObj = {
                 value: district.districtId,
                 "hc-key": district.districtCode,
@@ -135,7 +142,7 @@ function Map(props) {
                 temp: reading.temperature,
                 humidity: reading.humidity,
                 pressure: reading.pressure,
-                dateTime: new Date(reading.dateTime).toLocaleString()
+                dateTime: dateTime.toLocaleString()
             }
 
             dataArray.push(dataObj);

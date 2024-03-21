@@ -159,6 +159,7 @@ function Map(props) {
             highcharts={Highcharts}
                 options={mapOptions}
             />
+            <p className="dev-info">@Kalindu Washington - WEB_API_CW</p>
         </>
     );
 }

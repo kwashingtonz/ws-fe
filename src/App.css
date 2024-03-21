@@ -36,3 +36,11 @@
   font-size: 11px !important;
   text-align: center !important;
 }
+
+.app .map-content .dev-info{
+  position: absolute;
+  bottom: 0px;
+  right: 11px;
+  font-size: 10px;
+  font-weight: 700;
+}

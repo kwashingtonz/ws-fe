@@ -26,4 +26,4 @@ jobs:
       - name: Delete old container
         run: docker rm -f weather-stat-fe.container
       - name: Run docker container
-        run: docker run -d -p 3000:3000 --name weather-stat.container kalinduwashington/weather-stat-fe:latest
+        run: docker run -d -p 3000:3000 --name weather-stat-fe.container kalinduwashington/weather-stat-fe:latest

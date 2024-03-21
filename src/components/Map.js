@@ -50,9 +50,7 @@ function Map(props) {
         getWeatherData();
 
         // Connect to the Socket.IO server
-        const socket = io(basePath, {
-            transports: ['websocket']
-        }); 
+        const socket = io(basePath); 
 
         // Listen for 'weatherData' event emitted from the server
         socket.on('weather-data', (data) => {
